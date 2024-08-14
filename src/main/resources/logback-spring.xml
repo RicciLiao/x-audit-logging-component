@@ -1,0 +1,15 @@
+<configuration>
+    <appender name="logstash" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder"/>
+        <destination>${LOGSTASH_URL}</destination>
+    </appender>
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder"/>
+    </appender>
+
+    <root level="info">
+        <appender-ref ref="console"/>
+        <appender-ref ref="logstash"/>
+    </root>
+
+</configuration>
