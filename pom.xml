@@ -12,6 +12,9 @@
     <name>audit-log</name>
     <description>Audit Log System</description>
     <packaging>war</packaging>
+    <properties>
+        <java.version>11</java.version>
+    </properties>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -28,7 +31,6 @@
         <dependency>
             <groupId>net.logstash.logback</groupId>
             <artifactId>logstash-logback-encoder</artifactId>
-            <version>7.1.1</version>
         </dependency>
 
         <dependency>
