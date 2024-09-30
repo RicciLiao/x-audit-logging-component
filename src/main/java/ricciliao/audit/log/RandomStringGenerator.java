@@ -1,4 +1,4 @@
-package audit.log;
+package ricciliao.audit.log;
 
 import java.security.SecureRandom;
 import java.util.ArrayList;

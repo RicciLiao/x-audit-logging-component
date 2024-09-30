@@ -1,13 +1,13 @@
 <configuration>
     <appender name="logstash" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
         <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
-            <layout class="audit.log.AuditLogLayout"/>
+            <layout class="ricciliao.audit.log.AuditLogLayout"/>
         </encoder>
         <destination>${LOGSTASH_URL}</destination>
     </appender>
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
         <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
-            <layout class="audit.log.AuditLogLayout"/>
+            <layout class="ricciliao.audit.log.AuditLogLayout"/>
         </encoder>
     </appender>
     <!--<appender name="logstash" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
