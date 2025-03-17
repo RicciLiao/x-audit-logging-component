@@ -1,4 +1,4 @@
-package ricciliao.audit.log;
+package ricciliao.x.log;
 
 import ch.qos.logback.classic.pattern.ExtendedThrowableProxyConverter;
 import ch.qos.logback.classic.spi.ILoggingEvent;

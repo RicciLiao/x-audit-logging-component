@@ -1,8 +1,7 @@
-package ricciliao.audit.log;
+package ricciliao.x.log;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 

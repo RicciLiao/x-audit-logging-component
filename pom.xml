@@ -7,9 +7,11 @@
         <artifactId>dependencies-control-center</artifactId>
         <version>1.0.0</version>
     </parent>
-    <artifactId>audit-log</artifactId>
+
+    <groupId>ricciliao.x</groupId>
+    <artifactId>audit-log-component</artifactId>
     <version>1.0</version>
-    <name>audit-log</name>
+    <name>x-audit-log-component</name>
     <description>Audit Log System</description>
     <packaging>war</packaging>
     <properties>
