@@ -14,11 +14,11 @@
     <name>x-audit-log-component</name>
     <description>Audit Log System</description>
     <packaging>war</packaging>
+
     <properties>
-        <java.version>20</java.version>
-        <maven.compiler.source>20</maven.compiler.source>
-        <maven.compiler.target>20</maven.compiler.target>
+
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
