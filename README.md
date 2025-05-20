@@ -22,18 +22,18 @@ tracking, also, it can integrate **ELK** too.
 
 - **Log Fields**
 
-| Name           | Type                     | Value                                 |
-|----------------|--------------------------|---------------------------------------|
-| on             | java.time.OffsetDateTime | current date time                     |
-| version        | java.lang.String         | property `ricciliao.x.common.version` |
-| consumer       | java.lang.String         | property `spring.application.name`    |
-| level          | java.lang.String         | ch.qos.logback.classic.Level          |
-| loggerName     | java.lang.String         | class name                            |
-| stackTrace     | java.lang.String         | exception stacks                      |
-| version        | java.lang.String         | property `ricciliao.x.common.version` |
-| transactionId  | java.lang.String         | unique tracing id                     |
-| operation      | java.lang.String         | API path                              |
-| durationMillis | java.time.Duration       | milliseconds                          |
+| Name           | Type                     | Value                                 | optional |
+|----------------|--------------------------|---------------------------------------|----------|
+| on             | java.time.OffsetDateTime | current date time                     | false    |
+| version        | java.lang.String         | property `ricciliao.x.common.version` | false    |
+| consumer       | java.lang.String         | property `spring.application.name`    | true     |
+| level          | java.lang.String         | ch.qos.logback.classic.Level          | false    |
+| loggerName     | java.lang.String         | class name                            | false    |
+| stackTrace     | java.lang.String         | exception stacks                      | true     |
+| version        | java.lang.String         | property `ricciliao.x.common.version` | false    |
+| transactionId  | java.lang.String         | unique tracing id                     | false    |
+| operation      | java.lang.String         | API path                              | false    |
+| durationMillis | java.time.Duration       | milliseconds                          | true     |
 
 If you want to integrate your **logstash**, please add an environment property `LOGSTASH_URL`.
 
