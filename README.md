@@ -18,9 +18,7 @@ Please refer to dependencies-control-center for the version number.
 ### 📌 Usage
 
 **Audit Log** is a logger framework, it follows the SLF4J specification. The framework uses **MDC** to implement log
-tracking,
-it makes you to analyze the flow between services and data more clearly.
-Also, it can integrate **ELK** and provides you with a more convenient visual log.
+tracking, also, it can integrate **ELK** too.
 
 - **Log Fields**
 
@@ -33,7 +31,7 @@ Also, it can integrate **ELK** and provides you with a more convenient visual lo
 | loggerName     | java.lang.String         | class name                            |
 | stackTrace     | java.lang.String         | exception stacks                      |
 | version        | java.lang.String         | property `ricciliao.x.common.version` |
-| transactionId  | java.lang.String         | unique id                             |
+| transactionId  | java.lang.String         | unique tracing id                     |
 | operation      | java.lang.String         | API path                              |
 | durationMillis | java.time.Duration       | milliseconds                          |
 
