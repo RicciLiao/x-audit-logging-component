@@ -10,7 +10,7 @@ Please refer to dependencies-control-center for the version number.
 |--------------------------|--------------------------------|----------|----------|
 | ch.qos.logback           | logback-classic                | compile  | false    |
 | net.logstash.logback     | logstash-logback-encoder       | compile  | false    |
-| ricciliao.x              | common-components              | compile  | true     |
+| ricciliao.x              | common-components              | provided | false    |
 | org.springframework.boot | spring-boot-starter-web        | provided | false    |
 | jakarta.servlet          | jakarta.servlet-ap             | provided | false    |
 | org.springframework.boot | spring-boot-starter-validation | provided | false    |

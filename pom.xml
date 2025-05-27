@@ -31,7 +31,7 @@
         <dependency>
             <groupId>ricciliao.x</groupId>
             <artifactId>common-components</artifactId>
-            <optional>true</optional>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
