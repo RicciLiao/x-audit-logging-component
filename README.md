@@ -6,14 +6,14 @@
 
 Please refer to dependencies-control-center for the version number.
 
-| groupId                  | artifactId                     | scope    | optional |
-|--------------------------|--------------------------------|----------|----------|
-| ch.qos.logback           | logback-classic                | compile  | false    |
-| net.logstash.logback     | logstash-logback-encoder       | compile  | false    |
-| ricciliao.x              | common-components              | provided | false    |
-| org.springframework.boot | spring-boot-starter-web        | provided | false    |
-| jakarta.servlet          | jakarta.servlet-ap             | provided | false    |
-| org.springframework.boot | spring-boot-starter-validation | provided | false    |
+| groupId                  | artifactId                     | scope    |
+|--------------------------|--------------------------------|----------|
+| ch.qos.logback           | logback-classic                | compile  |
+| net.logstash.logback     | logstash-logback-encoder       | compile  |
+| ricciliao.x              | common-components              | compile  |
+| org.springframework.boot | spring-boot-starter-web        | provided |
+| jakarta.servlet          | jakarta.servlet-ap             | provided |
+| org.springframework.boot | spring-boot-starter-validation | provided |
 
 ### 📌 Usage
 
