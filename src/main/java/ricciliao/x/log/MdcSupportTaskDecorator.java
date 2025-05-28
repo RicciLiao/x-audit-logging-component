@@ -4,7 +4,7 @@ import org.springframework.core.task.TaskDecorator;
 import org.springframework.lang.NonNull;
 import ricciliao.x.log.common.MdcConcurrentUtils;
 
-public class MdcTaskDecorator implements TaskDecorator {
+public class MdcSupportTaskDecorator implements TaskDecorator {
 
     @NonNull
     @Override
