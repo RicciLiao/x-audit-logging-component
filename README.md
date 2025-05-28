@@ -20,6 +20,8 @@ Please refer to dependencies-control-center for the version number.
 **Audit Log** is a logger framework, it follows the SLF4J specification. The framework uses **MDC** to implement log
 tracking, also, it can integrate **ELK** too.
 
+***Audit Log has been integrated with starter, please refer to `x-components-starter`***
+
 - **Log Fields**
 
 | Name           | Type                     | Value                                 | optional |
@@ -64,12 +66,11 @@ You can define the logger just like define a SLF4J logger.
 for example:
 
 ```java
-public class AuditLogFilter extends ContentCachingFilter {
+public class Audit {
 
     private static final AuditLogger logger = AuditLoggerFactory.getLogger(AuditLogFilter.class);
 
-    @Override
-    public void doFilter(ContentCachingRequestWrapper requestWrapper, ContentCachingResponseWrapper responseWrapper, FilterChain chain) throws ServletException, IOException {
+    public void audit() {
         try {
             logger.info("...");
             logger.warn("...");
@@ -138,19 +139,15 @@ This logger can record the time taken of code execution.
 for example:
 
 ```java
-public class AuditLogFilter extends ContentCachingFilter {
+public class Audit {
 
-    private static final AuditLogger logger = AuditLoggerFactory.getLogger(AuditLogFilter.class);
+  private static final AuditLogger logger = AuditLoggerFactory.getLogger(AuditLogFilter.class);
 
-    @Override
-    public void doFilter(ContentCachingRequestWrapper requestWrapper, ContentCachingResponseWrapper responseWrapper, FilterChain chain) throws ServletException, IOException {
-        logger.duration().start().info("AuditLogFilter started");
-        try {
-            chain.doFilter(requestWrapper, responseWrapper);
-        } finally {
-            logger.duration().stop().info("AuditLogFilter end");
-        }
-    }
+  public void audit() {
+    logger.duration().start().info("...");
+    // do something...
+    logger.duration().stop().info("...");
+  }
 
 }
 ```
@@ -255,23 +252,26 @@ public class MdcTaskDecorator implements TaskDecorator {
 
         return MdcConcurrentUtils.wrap(runnable);
     }
+}
 ```
 
 for example:
 
 ```java
-@Bean
-public Executor mdcExecutor(){
-        ThreadPoolTaskExecutor executor=new ThreadPoolTaskExecutor();
-        executor.setCorePoolSize(5);
-        executor.setMaxPoolSize(10);
-        executor.setQueueCapacity(100);
-        executor.setThreadNamePrefix("async-");
-        executor.setTaskDecorator(new MdcTaskDecorator());
-        executor.initialize();
+public class Configuration{
+  @Bean
+  public Executor mdcExecutor(){
+    ThreadPoolTaskExecutor executor=new ThreadPoolTaskExecutor();
+    executor.setCorePoolSize(5);
+    executor.setMaxPoolSize(10);
+    executor.setQueueCapacity(100);
+    executor.setThreadNamePrefix("async-");
+    executor.setTaskDecorator(new MdcTaskDecorator());
+    executor.initialize();
 
-        return executor;
-        }
+    return executor;
+  }
+}
 ```
 
 ---
