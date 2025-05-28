@@ -16,11 +16,9 @@ public class MdcSupportFilter extends ContentCachingFilter {
 
     @Override
     public void doFilter(ContentCachingRequestWrapper requestWrapper, ContentCachingResponseWrapper responseWrapper, FilterChain chain) throws ServletException, IOException {
-        if (StringUtils.isBlank(MDC.get(AuditLogConstants.TRANSACTION_ID))
-                || StringUtils.isBlank(MDC.get(AuditLogConstants.OPERATION))) {
-            MDC.put(AuditLogConstants.TRANSACTION_ID, AuditLogHelper.uniqueId());
-            MDC.put(AuditLogConstants.OPERATION, requestWrapper.getRequestURI());
-        }
+        MDC.clear();
+        MDC.put(AuditLogConstants.TRANSACTION_ID, AuditLogHelper.uniqueId());
+        MDC.put(AuditLogConstants.OPERATION, requestWrapper.getRequestURI());
         chain.doFilter(requestWrapper, responseWrapper);
     }
 
