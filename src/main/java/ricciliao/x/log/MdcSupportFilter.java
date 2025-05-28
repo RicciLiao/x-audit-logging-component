@@ -9,13 +9,10 @@ import org.springframework.web.util.ContentCachingResponseWrapper;
 import ricciliao.x.component.servlet.ContentCachingFilter;
 import ricciliao.x.log.common.AuditLogConstants;
 import ricciliao.x.log.common.AuditLogHelper;
-import ricciliao.x.log.logger.AuditLogger;
 
 import java.io.IOException;
 
 public class MdcSupportFilter extends ContentCachingFilter {
-
-    private static final AuditLogger logger = AuditLoggerFactory.getLogger(MdcSupportFilter.class);
 
     @Override
     public void doFilter(ContentCachingRequestWrapper requestWrapper, ContentCachingResponseWrapper responseWrapper, FilterChain chain) throws ServletException, IOException {
@@ -24,7 +21,6 @@ public class MdcSupportFilter extends ContentCachingFilter {
             MDC.put(AuditLogConstants.TRANSACTION_ID, AuditLogHelper.uniqueId());
             MDC.put(AuditLogConstants.OPERATION, requestWrapper.getRequestURI());
         }
-
         chain.doFilter(requestWrapper, responseWrapper);
     }
 
