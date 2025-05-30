@@ -2,7 +2,6 @@ package ricciliao.x.log;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.MDC;
 import org.springframework.web.util.ContentCachingRequestWrapper;
 import org.springframework.web.util.ContentCachingResponseWrapper;
