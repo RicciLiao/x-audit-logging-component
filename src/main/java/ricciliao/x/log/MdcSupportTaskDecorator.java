@@ -1,14 +1,14 @@
 package ricciliao.x.log;
 
+import jakarta.annotation.Nonnull;
 import org.springframework.core.task.TaskDecorator;
-import org.springframework.lang.NonNull;
 import ricciliao.x.log.common.MdcConcurrentUtils;
 
 public class MdcSupportTaskDecorator implements TaskDecorator {
 
-    @NonNull
+    @Nonnull
     @Override
-    public Runnable decorate(@NonNull Runnable runnable) {
+    public Runnable decorate(@Nonnull Runnable runnable) {
 
         return MdcConcurrentUtils.wrap(runnable);
     }

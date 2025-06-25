@@ -1,6 +1,6 @@
 package ricciliao.x.log.pojo;
 
-import org.springframework.lang.NonNull;
+import jakarta.annotation.Nonnull;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -13,7 +13,7 @@ public class MdcSupport implements Serializable {
     private final String transactionId;
     private final String operation;
 
-    public MdcSupport(@NonNull String transactionId, @NonNull String operation) {
+    public MdcSupport(@Nonnull String transactionId, @Nonnull String operation) {
         this.transactionId = transactionId;
         this.operation = operation;
     }
