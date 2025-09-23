@@ -9,10 +9,10 @@
     </parent>
 
     <groupId>ricciliao.x</groupId>
-    <artifactId>audit-log-component</artifactId>
+    <artifactId>audit-logging-component</artifactId>
     <version>1.0.0</version>
-    <name>x-audit-log-component</name>
-    <description>Audit Log Component</description>
+    <name>x-audit-logging-component</name>
+    <description>Audit Logging Component</description>
     <packaging>jar</packaging>
 
     <properties>
@@ -34,6 +34,13 @@
             <groupId>ricciliao.x</groupId>
             <artifactId>common-components</artifactId>
             <scope>compile</scope>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>ricciliao.x</groupId>
+            <artifactId>logging-api</artifactId>
+            <scope>compile</scope>
+            <optional>true</optional>
         </dependency>
 
         <dependency>
@@ -65,6 +72,15 @@
     </dependencies>
 
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*</include>
+                    <include>META-INF/services/*</include>
+                </includes>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -72,16 +88,6 @@
                 <version>${spring-boot-dependencies.version}</version>
             </plugin>
         </plugins>
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-                <includes>
-                    <include>application.yml</include>
-                    <include>logback-spring.xml</include>
-                </includes>
-                <filtering>true</filtering>
-            </resource>
-        </resources>
         <finalName>ROOT</finalName>
     </build>
 

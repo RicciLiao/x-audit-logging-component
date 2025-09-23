@@ -3,6 +3,7 @@ package ricciliao.x.log.logger;
 import org.slf4j.Logger;
 import org.slf4j.MDC;
 import ricciliao.x.component.utils.CoreUtils;
+import ricciliao.x.log.api.XDurationLogger;
 import ricciliao.x.log.common.AuditLogConstants;
 
 import java.time.LocalDateTime;
@@ -11,7 +12,7 @@ import java.util.Deque;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AuditDurationLogger extends LoggerDelegate {
+public class AuditDurationLogger extends LoggerDelegate implements XDurationLogger {
     private final Map<Long, Deque<LocalDateTime>> thread2StartOnMap = new HashMap<>();
 
     public AuditDurationLogger(Logger delegate) {
@@ -22,6 +23,7 @@ public class AuditDurationLogger extends LoggerDelegate {
         return thread2StartOnMap;
     }
 
+    @Override
     public Logger start() {
         LocalDateTime now = LocalDateTime.now();
         if (thread2StartOnMap.containsKey(Thread.currentThread().threadId())) {
@@ -35,6 +37,7 @@ public class AuditDurationLogger extends LoggerDelegate {
         return this.getDelegate();
     }
 
+    @Override
     public Logger stop() {
         LocalDateTime startOn;
         LocalDateTime now = LocalDateTime.now();
