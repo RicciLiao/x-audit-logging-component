@@ -40,7 +40,6 @@
             <groupId>ricciliao.x</groupId>
             <artifactId>logging-api</artifactId>
             <scope>compile</scope>
-            <optional>true</optional>
         </dependency>
 
         <dependency>

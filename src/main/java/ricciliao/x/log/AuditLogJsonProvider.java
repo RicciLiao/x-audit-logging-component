@@ -63,8 +63,8 @@ public class AuditLogJsonProvider extends AbstractJsonProvider<ILoggingEvent> {
                     mdc.get(AuditLogConstants.TRANSACTION_ID),
                     mdc.get(AuditLogConstants.OPERATION),
                     Duration.between(
-                            CoreUtils.toLocalDateTime(Long.parseLong(mdc.get(AuditLogConstants.DURATION_START_ON))),
-                            CoreUtils.toLocalDateTime(Long.parseLong(mdc.get(AuditLogConstants.DURATION_END_ON)))
+                            CoreUtils.toLocalDateTimeNotNull(Long.parseLong(mdc.get(AuditLogConstants.DURATION_START_ON))),
+                            CoreUtils.toLocalDateTimeNotNull(Long.parseLong(mdc.get(AuditLogConstants.DURATION_END_ON)))
                     )
             );
         } else {
