@@ -71,15 +71,6 @@
     </dependencies>
 
     <build>
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-                <includes>
-                    <include>**/*</include>
-                    <include>META-INF/services/*</include>
-                </includes>
-            </resource>
-        </resources>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -87,7 +78,6 @@
                 <version>${spring-boot-dependencies.version}</version>
             </plugin>
         </plugins>
-        <finalName>ROOT</finalName>
     </build>
 
 </project>
