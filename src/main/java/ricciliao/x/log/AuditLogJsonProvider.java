@@ -10,13 +10,13 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import net.logstash.logback.composite.AbstractJsonProvider;
 import org.apache.commons.lang3.StringUtils;
-import ricciliao.x.component.utils.CoreUtils;
 import ricciliao.x.log.common.AuditLogConstants;
 import ricciliao.x.log.pojo.AuditLogBo;
 import ricciliao.x.log.pojo.AuditLogDurationBo;
 
 import java.io.IOException;
 import java.time.Duration;
+import java.time.Instant;
 import java.time.OffsetDateTime;
 import java.util.Map;
 import java.util.TimeZone;
@@ -58,13 +58,12 @@ public class AuditLogJsonProvider extends AbstractJsonProvider<ILoggingEvent> {
         Map<String, String> mdc = iLoggingEvent.getMDCPropertyMap();
         if (StringUtils.isNotBlank(mdc.get(AuditLogConstants.DURATION_START_ON))
                 && StringUtils.isNotBlank(mdc.get(AuditLogConstants.DURATION_END_ON))) {
-
             bo = new AuditLogDurationBo(
                     mdc.get(AuditLogConstants.TRANSACTION_ID),
                     mdc.get(AuditLogConstants.OPERATION),
                     Duration.between(
-                            CoreUtils.toLocalDateTimeNotNull(Long.parseLong(mdc.get(AuditLogConstants.DURATION_START_ON))),
-                            CoreUtils.toLocalDateTimeNotNull(Long.parseLong(mdc.get(AuditLogConstants.DURATION_END_ON)))
+                            Instant.ofEpochMilli(Long.parseLong(mdc.get(AuditLogConstants.DURATION_START_ON))),
+                            Instant.ofEpochMilli(Long.parseLong(mdc.get(AuditLogConstants.DURATION_END_ON)))
                     )
             );
         } else {
